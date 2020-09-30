@@ -77,7 +77,16 @@ sudo apt-get update; \
   sudo apt-get install -y dotnet-sdk-3.1
 ```
 
+# Entendendo o .Net
+## Compilação
+Quando uma aplicação .NET é compilada ela é convertida de sua linguagem escrita (Visual Basic .NET, C# ou outra compatível) para a Microsoft Intermediate Language (MSIL). MSIL é uma linguagem de baixo-nível que a CLR (Common Language Runtime) pode ler e entender. Porque todos os executáveis e DLLs existem como MSIL podem ser interoperalizados livremente. A Common Language Specification (CLS) define os padrões mínimos que os compiladores das linguagens precisam estar em conformidade. Com isso a CLS assegura que qualquer código fonte compilado nos padrões CLS pode ser interoperado pelo .NET Framework.
+
 # Referências
 - https://git-scm.com/download/linux
 - https://linuxize.com/post/how-to-install-visual-studio-code-on-ubuntu-18-04/
 - https://docs.microsoft.com/pt-br/dotnet/core/install/linux-ubuntu#2004-
+- https://docs.microsoft.com/pt-br/archive/msdn-magazine/2017/september/net-standard-demystifying-net-core-and-net-standard
+- http://www.macoratti.net/13/01/aspn_7cor1.htm
+- https://www.eduardopires.net.br/2017/06/net-standard-voce-precisa-conhecer/
+- https://juliobattisti.com.br/tutoriais/almirrivas/vbdotnet001.asp?imprime=sim
+- 
