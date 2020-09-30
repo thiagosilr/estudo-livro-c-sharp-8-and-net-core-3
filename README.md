@@ -77,9 +77,20 @@ sudo apt-get update; \
   sudo apt-get install -y dotnet-sdk-3.1
 ```
 
+### [Extra] Editor de imagem 
+Com o intuito de realizar toda codificação no Linux para futuramente usar o mesmo como plaltaforma de trabalho, surgiu a necessidade de utilizar outras ferramentas. Uma foi um editor de imagem parecido com o Paint, para editar imagens que gostaria de incluir no README para que os exemplos. A ferramenta original que veio no SO (mtPaint) tive muita dificuldade e procurando uma ferramenta parecida com o MS Paint, encontrei o KolourPaint, e achei ela muito fácil de trabalhar.
+```sh
+sudo apt-get install kolourpaint 
+```
+
+
 # Entendendo o .Net
 ## Compilação
-Quando uma aplicação .NET é compilada ela é convertida de sua linguagem escrita (Visual Basic .NET, C# ou outra compatível) para a Microsoft Intermediate Language (MSIL). MSIL é uma linguagem de baixo-nível que a CLR (Common Language Runtime) pode ler e entender. Porque todos os executáveis e DLLs existem como MSIL podem ser interoperalizados livremente. A Common Language Specification (CLS) define os padrões mínimos que os compiladores das linguagens precisam estar em conformidade. Com isso a CLS assegura que qualquer código fonte compilado nos padrões CLS pode ser interoperado pelo .NET Framework.
+Quando uma aplicação .NET é compilada ela é convertida de sua linguagem escrita (Visual Basic .NET, C# ou outra compatível) para a Microsoft Intermediate Language (MSIL) ou Commom Itermediate Language (CIL). MSIL é uma linguagem de baixo-nível que a CLR (Common Language Runtime) pode ler e entender (executar).
+
+![.Net Compilação](dotnet-compilacao.png)
+
+Atualmente o mundo .net temos três 
 
 # Referências
 - https://git-scm.com/download/linux
