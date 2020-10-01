@@ -88,9 +88,45 @@ sudo apt-get install kolourpaint
 ## Compilação
 Quando uma aplicação .NET é compilada ela é convertida de sua linguagem escrita (Visual Basic .NET, C# ou outra compatível) para a Microsoft Intermediate Language (MSIL) ou Commom Itermediate Language (CIL). MSIL é uma linguagem de baixo-nível que a CLR (Common Language Runtime) pode ler e entender (executar).
 
-![.Net Compilação](dotnet-compilacao.png)
+![.Net Compilação](imagens/dotnet-compilacao.png)
+ 
+A família .Net atualmente possui três plataformas:
+- .Net Framework;
+- .Net Core;
+- Xamarim
 
-Atualmente o mundo .net temos três 
+Cada frente possui o seu próprio runtime, mas que seguem o principio da imagem acima de compilação.
+
+Com o surgimento das novas plataformas, como a Microsoft define classes que são padrões em toda línguagem, não importando a plataforma Framework, Core ou Xamarim?
+
+Ai que entra o .Net Standard.
+
+## .Net Standard
+"O .NET Standard é um conceito essencial para compreender a unificação das plataformas .NET sendo que atualmente podemos entender como 3 plataformas:"
+
+![.Net Plataformas](dotnet-plataformas.png)
+
+"O .NET Standard é uma interface, uma espécie de contrato que define a lista de APIs que aquela determinada versão do .NET deve suportar. Para entender de forma muito simples o conceito do .NET Standard imagine o seguinte cenário:"
+
+![.Net Standard](dotnet-standard.jpg)
+
+"Entenda que o .NET Standard é uma espécie de interface que define as APIs que cada versão do .NET irá oferecer suporte. O código do .NET Standard não possui implementação de comportamento, apenas a declaração das classes e métodos. Através deste padrão único conseguiremos uma total compatibilidade de um código .NET Framework para .NET Core por exemplo."
+
+A explicação mais detalhada você encontra no ótimo artigo do Eduardo Pires: https://www.eduardopires.net.br/2017/06/net-standard-voce-precisa-conhecer/
+
+## O futuro
+Cada vez mais a Microsoft vem trabalhando para ter uma plataforma única de desenvolvimento. "Até o final de 2020, a Microsoft promete que haverá uma única plataforma .NET em vez de três. .NET 5.0 é planejado para ter um único BCL e dois tempos de execução: um
+otimizado para cenários de servidor ou desktop, como sites e aplicativos de desktop do Windows
+com base no tempo de execução do .NET Core e um otimizado para aplicativos móveis com base no
+Tempo de execução do Xamarin."
+
+Sairia deste desenho:
+![.Net Plataformas](dotnet-plataformas.png)
+Para:
+![.Net 5](dotnet-5.jpg)
+
+Assim teremos uma evolução continua e focada do .Net.
+Maiores detalhes sobre o que será mantido, removido, cronograma de lançamento de uma olhada nesse artigo do Macoratti: http://www.macoratti.net/19/07/net5_net1.htm
 
 # Referências
 - https://git-scm.com/download/linux
