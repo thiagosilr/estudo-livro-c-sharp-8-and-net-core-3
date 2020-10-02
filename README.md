@@ -104,11 +104,11 @@ Ai que entra o .Net Standard.
 ## .Net Standard
 "O .NET Standard é um conceito essencial para compreender a unificação das plataformas .NET sendo que atualmente podemos entender como 3 plataformas:"
 
-![.Net Plataformas](dotnet-plataformas.png)
+![.Net Plataformas](imagens/dotnet-plataformas.png)
 
 "O .NET Standard é uma interface, uma espécie de contrato que define a lista de APIs que aquela determinada versão do .NET deve suportar. Para entender de forma muito simples o conceito do .NET Standard imagine o seguinte cenário:"
 
-![.Net Standard](dotnet-standard.jpg)
+![.Net Standard](imagens/dotnet-standard.jpg)
 
 "Entenda que o .NET Standard é uma espécie de interface que define as APIs que cada versão do .NET irá oferecer suporte. O código do .NET Standard não possui implementação de comportamento, apenas a declaração das classes e métodos. Através deste padrão único conseguiremos uma total compatibilidade de um código .NET Framework para .NET Core por exemplo."
 
@@ -121,12 +121,38 @@ com base no tempo de execução do .NET Core e um otimizado para aplicativos mó
 Tempo de execução do Xamarin."
 
 Sairia deste desenho:
-![.Net Plataformas](dotnet-plataformas.png)
+![.Net Plataformas](imagens/dotnet-plataformas.png)
+
 Para:
-![.Net 5](dotnet-5.jpg)
+![.Net 5](imagens/dotnet-5.jpg)
 
 Assim teremos uma evolução continua e focada do .Net.
 Maiores detalhes sobre o que será mantido, removido, cronograma de lançamento de uma olhada nesse artigo do Macoratti: http://www.macoratti.net/19/07/net5_net1.htm
+
+# Comandos console .NET
+```sh
+# Lista informações do sdk e runtime instalados
+dotnet --info 
+
+# Lista os templates de projetos que podemos criar via console.
+dotnet new -l 
+
+# Cria um projeto to tipo console application
+dotnet new console 
+```
+
+# Comandos linux
+Novos comando linux que fui apredendo durante o estudo
+```sh
+# Listar arquivos em um diretório incluindo os ocultos
+# Geralmente listava com o comando ls -l
+ls -la
+```
+
+# C# o que aprendi de novo
+Vivendo e apredendo, eu gosto do estudo da teoria de mais baixo nível para que possamos abstrair e termos um horizonte amplo na solução de problemas. Como comecei a trabalhar com .Net em 2013, não acompanhei a evolução de línguagem C#, pois trabalhava com PHP. Vou anotar coisas que já existem a muito tempo na línguagem e nem tinha conhecimento da sua existencia. Além de revisões de como funciona algumas coisas que deixei de lado devido a correria e não me aprofundar em mais detalhes em alguns pontos teoricos da área da computação.
+
+
 
 # Referências
 - https://git-scm.com/download/linux
