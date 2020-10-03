@@ -149,10 +149,44 @@ Novos comando linux que fui apredendo durante o estudo
 ls -la
 ```
 
-# C# o que aprendi de novo
-Vivendo e apredendo, eu gosto do estudo da teoria de mais baixo nível para que possamos abstrair e termos um horizonte amplo na solução de problemas. Como comecei a trabalhar com .Net em 2013, não acompanhei a evolução de línguagem C#, pois trabalhava com PHP. Vou anotar coisas que já existem a muito tempo na línguagem e nem tinha conhecimento da sua existencia. Além de revisões de como funciona algumas coisas que deixei de lado devido a correria e não me aprofundar em mais detalhes em alguns pontos teoricos da área da computação.
+# C# o que aprendi durante o estudo
+Vivendo e apredendo, eu gosto de estudar a teoria, para que possamos abstrair melhor o por que estamos utilizando um determinado recurso, sabendo os prós e contras (efeitos colaterias ou possíveis problemas que podem surgir no futuro), e não simplemente usar por que no Stack Overflow alguém indicou que naquele formato funciona. Assim teremos um horizonte amplo para solução de problemas. 
 
+Como comecei a trabalhar com .Net/C# em 2013, não acompanhei a evolução do framework/línguagem, pois trabalhava com PHP. Vou anotar coisas que já existem a muito tempo na línguagem e nem tinha conhecimento da sua existencia. Além de revisões de alguns conceitos da computação.
 
+## Float, Double e Decimal
+Tipos que causam duvidas em muitas pessoas, qual tipo usar?
+
+### Como o computador lida com esses tipos?
+- Float e Double: São números representados internamente em base 2 (binário). Sendo números representados no formato binário os cálculos com esse tipo de número é realizado com uma velocidade bem maior que o decimal, isso por que o número já se encontra no formato que o hardware trabalha;
+- Decimal: São números representandos internamento em base 10. O mesmo não possui um bom desempenho perante float/double, como ele é um número representado em base 10, é necessário um conversão para binário par que o cáculo sejá realizado;
+
+Se float/double possuem um desempenho melhor, por que é recomendado usar decimal para cáculos financeiros?
+- Devido a precisão. O número decimal é mais preciso perante float/double.
+
+Vejamos uma exemplo do número 12,1 representado no formato float/double (binário):
+
+|2^3|2^2|2^1|2^0|,|2^-1|2^-2|2^-3|2^-4|2^-5|2^3 |
+|---|---|---|---|-|----|----|----|----|----|----|
+| 8 | 4 | 2 | 1 |,|1/2 |1/4 |1/8 |1/16|1/32|1/64|
+| 1 | 1 | 0 | 0 |,| 0  | 0  | 0  | 1  |    |    |
+
+O número 12 basta colocarmos o bit 1 nas posições 8 e 4 (8+4 = 12);
+
+Curiosidade: Por após a vigula (parte fracionária) temos 2 elevado a -1 igual 1/2? Aqui temos dois principios matematicos:
+- Dada uma potência x^–y, com x e y reais, o seu resultado é igual ao inverso de x elevado a y;
+- Inverso: Dado um número qualquer, seu inverso é a fração cujo numerador é 1, e o denominador é o próprio número. Por exemplo, o inverso de 5 é 1/5, e o inverso de 10 é 1/10.
+- Portanto 2^-1 é o inverso de 2 elevado a 1: (1/2)^1
+- Portanto 2^-4 é o inverso de 2 elevado a 4: (1/2)^4 = (1/2 * 1/2 * 1/2 * 1/2) = 1/16
+
+Para representar 0,1 no binário vamos dividindo as frações até achar o número mais próximo de 0,1:
+- 1/2 = 0,5. Número maior que 0,1, próxima divisão;
+- 1/4 = 0,25. Número maior que 0,1, próxima divisão;
+- 1/8 = 0,125. Número maior que 0,1, próxima divisão;
+- 1/16 = 0,0625. Número menor que 0,1, some esse valor as últimas posições marcadas com o bit 1 (0 + 0,0625 = 0,0625) e verifique se o valor retornado é menor ou igual 0,1.
+- 1/32 = 0,03125. Número menor que 0,1, some esse valor as últimas posições marcadas com o bit 1 (0,0625 + 0,03125 = 0,09375) e verifique se o valor retornado é menor ou igual 0,1.
+- 1/64 = 0,015625. Número menor que 0,1, some esse valor as últimas posições marcadas com o bit 1 (0,0625 + 0,03125 + 0,015625 = 0,109375) e verifique se o valor retornado é menor ou igual 0,1, neste caso é maior, não marque o bit 1 nessa posição e passe para a próxima posição.
+- 1/128 = 0,015625. Número menor que 0,1, some esse valor as últimas posições marcadas com o bit 1 (0,0625 + 0,03125 + 0,015625 = 0,109375) e verifique se o valor retornado é menor ou igual 0,1, neste caso é maior, não marque o bit 1 nessa posição e passe para a próxima posição.
 
 # Referências
 - https://git-scm.com/download/linux
@@ -162,4 +196,4 @@ Vivendo e apredendo, eu gosto do estudo da teoria de mais baixo nível para que 
 - http://www.macoratti.net/13/01/aspn_7cor1.htm
 - https://www.eduardopires.net.br/2017/06/net-standard-voce-precisa-conhecer/
 - https://juliobattisti.com.br/tutoriais/almirrivas/vbdotnet001.asp?imprime=sim
-- 
+- https://mundoeducacao.uol.com.br/matematica/potencias-com-expoente-negativo.htm
