@@ -173,13 +173,13 @@ Vejamos uma exemplo do número 12,1 representado no formato float/double (binár
 
 O número 12 basta colocarmos o bit 1 nas posições 8 e 4 (8+4 = 12);
 
-Curiosidade: Por após a vigula (parte fracionária) temos 2 elevado a -1 igual 1/2? Aqui temos dois principios matematicos:
+Curiosidade: Por que após a vigula (parte fracionária) temos 2 elevado a -1 igual 1/2? Aqui temos dois principios matematicos:
 - Dada uma potência x^–y, com x e y reais, o seu resultado é igual ao inverso de x elevado a y;
 - Inverso: Dado um número qualquer, seu inverso é a fração cujo numerador é 1, e o denominador é o próprio número. Por exemplo, o inverso de 5 é 1/5, e o inverso de 10 é 1/10.
 - Portanto 2^-1 é o inverso de 2 elevado a 1: (1/2)^1
 - Portanto 2^-4 é o inverso de 2 elevado a 4: (1/2)^4 = (1/2 * 1/2 * 1/2 * 1/2) = 1/16
 
-Para representar 0,1 no binário vamos dividindo as frações até achar o número mais próximo de 0,1:
+Para representar 0,1 em binário vamos dividindo as frações até achar o número mais próximo de 0,1:
 - 1/2 = 0,5. Número maior que 0,1, próxima divisão;
 - 1/4 = 0,25. Número maior que 0,1, próxima divisão;
 - 1/8 = 0,125. Número maior que 0,1, próxima divisão;
@@ -187,6 +187,14 @@ Para representar 0,1 no binário vamos dividindo as frações até achar o núme
 - 1/32 = 0,03125. Número menor que 0,1, some esse valor as últimas posições marcadas com o bit 1 (0,0625 + 0,03125 = 0,09375) e verifique se o valor retornado é menor ou igual 0,1.
 - 1/64 = 0,015625. Número menor que 0,1, some esse valor as últimas posições marcadas com o bit 1 (0,0625 + 0,03125 + 0,015625 = 0,109375) e verifique se o valor retornado é menor ou igual 0,1, neste caso é maior, não marque o bit 1 nessa posição e passe para a próxima posição.
 - 1/128 = 0,015625. Número menor que 0,1, some esse valor as últimas posições marcadas com o bit 1 (0,0625 + 0,03125 + 0,015625 = 0,109375) e verifique se o valor retornado é menor ou igual 0,1, neste caso é maior, não marque o bit 1 nessa posição e passe para a próxima posição.
+
+## Tipo dynamic
+Introduzido no C#4 o tipo dinâmico define o tipo da várias em tempo de execução. Mas lógico que isso tem um custo computacional bem maior que um variável com o tipo estabelecido.
+
+```csharp
+dynamic anotherName = "Ahmed";
+int length = anotherName.Length;
+```
 
 # Referências
 - https://git-scm.com/download/linux

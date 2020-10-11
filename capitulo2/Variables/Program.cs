@@ -6,16 +6,18 @@ namespace Variables
     {
         static void Main(string[] args)
         {
-            object height = 1.88; // storing a double in an object
-            object name = "Amir"; // storing a string in an object
-            Console.WriteLine($"{name} is {height} metres tall.");
-            // int length1 = name.Length; // gives compile error!
-            int length2 = ((string)name).Length; // tell compiler it is a
-            Console.WriteLine($"{name} has {length2} characters.");
-
+            // Variável dinâmica, o tipo é decidido em tempo de execução.
             dynamic anotherName = "Ahmed";
             var length = anotherName.Length;
 
+            // Uso de declaração implecita para os tipos mais básicos.
+            var population = 33333; // Int
+            var weight = 1.88; // Double
+            var ditance = 1222.44F; // Float
+            var price = 4.99M; // Decimal
+            var fruit = "Apples"; // String
+            var letter = 'Z'; // Char
+            var happy = true; // Bool
         }
     }
 }
