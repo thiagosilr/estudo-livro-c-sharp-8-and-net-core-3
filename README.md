@@ -196,6 +196,30 @@ dynamic anotherName = "Ahmed";
 int length = anotherName.Length;
 ```
 
+## Nullable
+Por padrão alguns tipos suportam o valor `null` caso não informamos um valor de inicialização. Mas muitas vezes isso causa um problema muito comum de referância nula, principalmente em projetos muitos grandes onde temos vários desenvolvedores e uma fraca padronização. Ou seja, alguns irão definir um valor padrão outros não.
+
+Exemplo:
+```csharp
+class Program
+{
+    static void Main(string[] args)
+    {
+        var contato = new Contato();
+        
+
+
+class Contato
+{
+    public string Nome;
+    public string Telefone;
+    public List<Endereco> Enderecos;
+}
+dynamic anotherName = "Ahmed";
+int length = anotherName.Length;
+```
+
+
 # Referências
 - https://git-scm.com/download/linux
 - https://linuxize.com/post/how-to-install-visual-studio-code-on-ubuntu-18-04/
