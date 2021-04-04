@@ -1,5 +1,4 @@
-﻿#nullable enable
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Nullable
@@ -8,21 +7,23 @@ namespace Nullable
     {
         static void Main(string[] args)
         {
-            var contato = new Contato();
-            Console.WriteLine(
-                $@"Como é obrigatório ter um valor, o atributo count sempre existe 
-                {contato.Enderecos.Count}");
+            var contato = new Contato() {
+                Nome = "Thiago",
+                Telefone = "3199998888"
+            };
             
-            // var endereco = new Endereco
-            // endereco.Logradouro = "Rua silva guimarães";
-            // endereco.Cidade = "Betim";
-            // endereco.Estado = "MG";
+            if (contato.Enderecos.Count > 5)
+            {
+                Console.WriteLine("Permitido cadastrar até 5 endereços por contato.");
+            }
         }
     }
 
     class Contato
     {
-        public List<Endereco> Enderecos;
+        public string Nome = string.Empty;
+        public string Telefone = string.Empty;
+        public List<Endereco> Enderecos = new List<Endereco>();
     }
 
     class Endereco

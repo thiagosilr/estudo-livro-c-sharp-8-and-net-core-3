@@ -197,27 +197,64 @@ int length = anotherName.Length;
 ```
 
 ## Nullable
-Por padrão alguns tipos suportam o valor `null` caso não informamos um valor de inicialização. Mas muitas vezes isso causa um problema muito comum de referância nula, principalmente em projetos muitos grandes onde temos vários desenvolvedores e uma fraca padronização. Ou seja, alguns irão definir um valor padrão outros não.
+Por padrão alguns tipos suportam o valor `null` caso não informamos um valor de inicialização. Muitas vezes isso causa um problema muito comum de referância nula, principalmente em projetos muitos grandes onde temos vários desenvolvedores e uma fraca padronização. Ou seja, alguns irão definir um valor padrão outros não.
 
-Exemplo:
+Exemplo, ao declarar o objeto contato o atributo Enderecos não é inicializado, para verificarmos se o objeto foi preenchido temos que antes verificar se o mesmo não é nulo para validarmos a nossa condição de limitar o cadastro de até 5 endereços:
 ```csharp
 class Program
 {
-    static void Main(string[] args)
+  static void Main(string[] args)
+  {
+    var contato = new Contato() {
+        Nome = "Thiago",
+        Telefone = "3199998888"
+    };
+    
+    if (contato.Enderecos != null && contato.Enderecos.Count > 5)
     {
-        var contato = new Contato();
-        
-
+        Console.WriteLine("Permitido cadastrar até 5 endereços por contato.");
+    }
+  }
+}
 
 class Contato
 {
-    public string Nome;
-    public string Telefone;
-    public List<Endereco> Enderecos;
+  public string Nome;
+  public string Telefone;
+  public List<Endereco> Enderecos;
 }
-dynamic anotherName = "Ahmed";
-int length = anotherName.Length;
 ```
+
+Mas com o `C# v8` podemos demonstrar a nossa intenção do compilador alertar o desenvolvedor que para aquele projeto devemos as variáveis de objetos não aceitam null por padrão, assim devendo inicializar. E caso queira que uma variável suporte nulo, faça o uso do `?`.
+
+### Habilitar para todo o projeto
+Altere o seu arquivo .csproj é inclua a configuração `<Nullable>enable</Nullable>`:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
+```
+
+### Habilitar/desabilitar individualmente para cada arquiivo
+Basta incluir no topo do arquivo a seguinte linha: 
+
+```csharp
+#nullable enable
+using System;
+using System.Collections.Generic;
+```
+
+Após habilitar o compilador passará emitir avisos que as variáveis não suportam valores nulos.
+
+![.Net 5](imagens/nullable.png)
+
 
 
 # Referências
@@ -229,3 +266,5 @@ int length = anotherName.Length;
 - https://www.eduardopires.net.br/2017/06/net-standard-voce-precisa-conhecer/
 - https://juliobattisti.com.br/tutoriais/almirrivas/vbdotnet001.asp?imprime=sim
 - https://mundoeducacao.uol.com.br/matematica/potencias-com-expoente-negativo.htm
+- https://docs.microsoft.com/pt-br/dotnet/csharp/nullable-references
+
